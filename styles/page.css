@@ -1,0 +1,669 @@
+﻿/* 公共 */
+.loading{
+    position: fixed;
+    display: -webkit-flex;
+    display: flex;
+    z-index: 4;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: #181e25;
+    align-items: center;
+    justify-content: center;
+}
+.loading img{
+    width:80%;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+.pre_load img{
+    position: fixed;
+    z-index: -1;
+    top:-100%;
+    left:-100%;
+}
+html,body{
+    overflow: hidden;
+}
+.bg_layout_1,
+.bg_layout_2,
+.bg_layout_3{
+    border:0.02rem solid transparent;
+    -webkit-border-radius: 0.08rem;
+    -moz-border-radius: 0.08rem;
+    border-radius: 0.08rem;
+}
+.bg_layout_1{
+    border-color:#e68614;
+    background: -webkit-linear-gradient(#fef27c, #feda4f);
+    background: -o-linear-gradient(#fef27c, #feda4f);
+    background: -moz-linear-gradient(#fef27c, #feda4f);
+    background: linear-gradient(#fef27c, #feda4f);
+}
+.bg_layout_2{
+    border-color:#ffa1ac;
+    background: -webkit-linear-gradient(#f8465a, #d52e41);
+    background: -o-linear-gradient(#f8465a, #d52e41);
+    background: -moz-linear-gradient(#f8465a, #d52e41);
+    background: linear-gradient(#f8465a, #d52e41);
+}
+.bg_layout_3{
+    border-color:#e68614;
+    background: #ffaa46;
+    background: -webkit-linear-gradient(#ffaa46, #e68614);
+    background: -o-linear-gradient(#ffaa46, #e68614);
+    background: -moz-linear-gradient(#ffaa46, #e68614);
+    background: linear-gradient(#ffaa46, #e68614);
+}
+.btn{
+    width:0.9rem;
+    font-size: 0.14rem;
+    line-height:0.30rem;
+    background:transparent;
+    border: 0.01rem solid transparent;
+    -webkit-border-radius: 0.04rem;
+    -moz-border-radius: 0.04rem;
+    border-radius: 0.04rem;
+}
+.btn_null{
+    color:#e68614;
+    border-color:#e68614;
+    background-color: transparent;
+}
+.btn_green{
+    color:#fff;
+    border-color:#13b302;
+    background-color: #13b302;
+}
+/* 绿色 */
+.tips_1{
+    display: flex;
+    border-color:#88f353;
+    background: -webkit-linear-gradient(#62dd26, #48b115); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#62dd26, #48b115); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#62dd26, #48b115); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#62dd26, #48b115); /* 标准的语法 */
+}
+/* 红色 */
+.tips_2{
+    display: flex;
+    border-color:#ffa1ac;
+    background: -webkit-linear-gradient(#f8465a, #d72f42); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#f8465a, #d72f42); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#f8465a, #d72f42); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#f8465a, #d72f42); /* 标准的语法 */
+}
+/* 橙色 */
+.tips_3{
+    display: flex;
+    border-color:#ffd299;
+    background: -webkit-linear-gradient(#f4af55, #e08d21); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(#f4af55, #e08d21); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(#f4af55, #e08d21); /* Firefox 3.6 - 15 */
+    background: linear-gradient(#f4af55, #e08d21); /* 标准的语法 */
+}
+
+/* 游戏中 */
+.game_main{
+    position: fixed;
+    display: none;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+.plane{
+    position: absolute;
+    z-index: 1;
+    bottom:0.3rem;
+    width:0.4rem;
+    height:0.256rem;
+    background: url("../images/plan_01.png") no-repeat center;
+    -webkit-background-size: 0.4rem;
+    background-size: 0.4rem;
+}
+.plane span{
+    position: absolute;
+    display: block;
+    z-index: 1;
+}
+.plane span:first-child{
+    top:0;
+    left:0;
+    width:100%;
+    height:0.156rem;
+}
+.plane span:last-child{
+    left:50%;
+    bottom:0;
+    width:0.124rem;
+    height:0.1rem;
+    margin-left:-0.062rem;
+}
+.bee_main{
+    position: fixed;
+    z-index: 0;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow: hidden;
+    background: url("../images/bg.jpg") no-repeat;
+    background-position-y: 100%;
+    -webkit-background-size: 100% 300%;
+    background-size: 100% 300%;
+}
+.bee_main div{
+    position: fixed;
+    z-index: 10;
+    left:0;
+    bottom:1rem;
+    color:#fff;
+    width:100%;
+    height:0.5rem;
+    font-size:1rem;
+    text-align: center;
+}
+.bee_enemy{
+    position: relative;
+    margin-top:0.1rem;
+}
+.bee_enemy li{
+    position: absolute;
+    overflow: hidden;
+    background: url("../images/enemy_spirit.png") no-repeat;
+    opacity: 0;
+}
+.bee_enemy .active{
+    position: fixed;
+}
+.bullet{
+    position: fixed;
+    display: block;
+    z-index: 1;
+    width:0.08rem;
+    height:0.16rem;
+    background: url("../images/bullet.png") no-repeat;
+    -webkit-background-size: 0.08rem;
+    background-size: 0.08rem;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+}
+.bee_header,
+.bee_footer{
+    position: fixed;
+    z-index: 1;
+    left:0;
+    width:100%;
+    height:0.5rem;
+}
+.bee_header{
+    top:0;
+}
+.bee_footer{
+    bottom:0;
+}
+.bee_header h1{
+    position: relative;
+    top:0;
+    left:0;
+    width:100%;
+    text-align: center;
+}
+.bee_header h1,
+.bee_header h1 span{
+    color:#fff;
+    font-size:0.16rem;
+    line-height:0.5rem;
+}
+.bee_header p,
+.bee_header div{
+    position: absolute;
+    z-index: 1;
+    top:0;
+}
+.bee_header p{
+    left:0.2rem;
+}
+.bee_header div{
+    display: none;
+    right:0.2rem;
+}
+.bee_header p,
+.bee_header p span,
+.bee_header div,
+.bee_header div span{
+    color:#fff;
+    font-size:0.14rem;
+    line-height:0.5rem;
+}
+
+.particle,
+.particle_drop{
+    position: fixed;
+    z-index: 2;
+}
+.particle span,
+.particle_drop span {
+    position: fixed;
+    display: block;
+    z-index: 2;
+    background: #fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+.particle span{
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+/* 开始界面 */
+.game_before{
+    position:fixed;
+    display: -webkit-flex;
+    display: flex;
+    z-index: 0;
+    width:100%;
+    height:100%;
+    overflow: hidden;
+    background: url("../images/bg.jpg") no-repeat;
+    background-position-y: 100%;
+    -webkit-background-size: 100% 300%;
+    background-size: 100% 300%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.game_before_slogan{
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.game_before h1{
+    position: relative;
+    top:-3rem;
+    width:2.16rem;
+    height:0.4rem;
+    background: url("../images/menu.png") no-repeat bottom;
+    -webkit-background-size: 2.16rem;
+    background-size: 2.16rem;
+}
+.game_before i{
+    position: relative;
+    z-index: 1;
+    top:6rem;
+    width:0.48rem;
+    height:0.3072rem;
+    overflow: hidden;
+    margin-top:0.2rem;
+    background: url("../images/plan_01.png") no-repeat;
+    -webkit-background-size: 0.48rem;
+    background-size: 0.48rem;
+}
+.game_before_menu{
+    margin-top:0.4rem;
+}
+.game_before li{
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:2rem;
+    height:0.4rem;
+    color:#e68614;
+    font-size:0.18rem;
+    text-align: center;
+    margin-bottom:0.2rem;
+    overflow: hidden;
+    -webkit-transform: translateX(-200%);
+    -moz-transform: translateX(-200%);
+    -ms-transform: translateX(-200%);
+    -o-transform: translateX(-200%);
+    transform: translateX(-200%);
+}
+.game_before .hide{
+    display: none;
+}
+.game_before .move_back{
+    top:0;
+    -webkit-transform: translate(0,0);
+    -moz-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+.game_before_menu li span{
+    display: block;
+    width:1.08rem;
+    height:0.2rem;
+    overflow: hidden;
+    -webkit-transform: scale(0.9,0.9);
+    -moz-transform: scale(0.9,0.9);
+    -ms-transform: scale(0.9,0.9);
+    -o-transform: scale(0.9,0.9);
+    transform: scale(0.9,0.9);
+    background-image:url("../images/menu.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: 1.08rem;
+    background-size: 1.08rem;
+}
+.game_before_menu_1{ background-position: 0 0 }
+.game_before_menu_2{ background-position: 0 20% }
+.game_before_menu_3{ background-position: 0 40% }
+.game_before_menu_4{ background-position: 0 60% }
+.game_before_menu_5{ background-position: 0 80% }
+
+.test{
+    position:fixed;
+    display: none;
+    z-index: 1;
+    left:0;
+    bottom:10%;
+    width:100%;
+    color:#fff;
+    font-size:0.12rem;
+    line-height:0.2rem;
+}
+.tips{
+    position: fixed;
+    display: none;
+    z-index: 2;
+    align-items: center;
+    justify-content: center;
+    top:50%;
+    left:15%;
+    width:70%;
+    height:0.4rem;
+    color:#fff;
+    font-size:0.16rem;
+    line-height:0.4rem;
+    margin-top:-0.2rem;
+    border:0.02rem solid transparent;
+    -webkit-border-radius: 0.08rem;
+    -moz-border-radius: 0.08rem;
+    border-radius: 0.08rem;
+}
+
+/* 选择关卡 */
+.checkpoint,
+.checkpoint_main,
+.checkpoint_list{
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.checkpoint{
+    position: fixed;
+    display: none;
+    z-index: 1;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    flex-direction: column;
+    background: transparent;
+}
+.checkpoint_main{
+    width:2.92rem;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+.checkpoint_main .fade_in{
+    opacity: 0.5;
+}
+.checkpoint_main .active{
+    opacity: 1;
+}
+.checkpoint_list{
+    flex-direction: column;
+    float: left;
+    width:1.3rem;
+    height:0.9rem;
+    margin:0.08rem;
+    opacity: 0;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.checkpoint_list h2{
+    color:#e68614;
+    font-size: 0.16rem;
+}
+.checkpoint_list dl{
+    display: -webkit-flex;
+    display: flex;
+    margin-top:0.08rem;
+    align-items: center;
+    justify-content: center;
+}
+.checkpoint_list dt{
+    color:#e68614;
+    font-size: 0.14rem;
+    line-height:0.18rem;
+    margin-right:0.03rem;
+}
+.checkpoint_list dd{
+    width:0.18rem;
+    height:0.18rem;
+    background:url("../images/checkpoint.png") no-repeat top;
+    -webkit-background-size: 0.18rem;
+    background-size: 0.18rem;
+}
+.checkpoint_main .bg_layout_2 h2,
+.checkpoint_main .bg_layout_2 dt,
+.checkpoint_main .bg_layout_3 h2,
+.checkpoint_main .bg_layout_3 dt{
+    color:#fff;
+}
+.checkpoint_main .bg_layout_2 dd,
+.checkpoint_main .bg_layout_3 dd {
+    background-position:bottom;
+}
+.btn_checkpoint_back{
+    margin-top:0.4rem;
+    opacity: 0;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.checkpoint_scale{
+    -webkit-transform: scale(1.1,1.1);
+    -moz-transform: scale(1.1,1.1);
+    -ms-transform: scale(1.1,1.1);
+    -o-transform: scale(1.1,1.1);
+    transform: scale(1.1,1.1);
+}
+
+/* 游戏设置 */
+.setting{
+    position: fixed;
+    display: none;
+    z-index: 1;
+    top:-100%;
+    left:0;
+    width:100%;
+    height:100%;
+}
+.setting_main{
+    flex-direction: column;
+    position: relative;
+    width:2.7rem;
+    margin-top:0.15rem;
+    padding-top:0.5rem;
+    padding-bottom:0.4rem;
+}
+.setting header{
+    position: absolute;
+    top:-0.3rem;
+    left:50%;
+    width:2rem;
+    height:0.5rem;
+    color:#fff;
+    font-size:0.16rem;
+    margin-left:-1rem;
+    background: url("../images/head.png") no-repeat;
+    -webkit-background-size: 2rem;
+    background-size: 2rem;
+}
+.setting footer{
+    margin-top:0.3rem;
+}
+.setting footer .btn{
+    margin-left:0.15rem;
+    margin-right:0.15rem;
+}
+.setting_main ul{
+    align-items: end;
+    flex-direction: column;
+    padding-bottom:0.2rem;
+    border-bottom:0.01rem dashed #e68614;
+}
+.setting_list{
+    width:100%;
+    margin-top:0.15rem;
+}
+.setting_list:first-child{
+    margin-top:0;
+}
+.setting_item_name{
+    flex-grow: 0;
+    flex-shrink: 0;
+    width:0.64rem;
+    color:#e68614;
+    font-size: 0.16rem;
+    text-align: right;
+}
+.setting_item_line{
+    position: relative;
+    width:100%;
+    height:0.02rem;
+    margin-left:0.15rem;
+    background: rgba(230,134,20,0.3);
+    -webkit-border-radius: 0.02rem;
+    -moz-border-radius: 0.02rem;
+    border-radius: 0.02rem;
+}
+.setting_item_line span{
+    position: absolute;
+    top:50%;
+    display: block;
+    width:0.18rem;
+    height:0.18rem;
+    margin-top:-0.09rem;
+    background: #e68614;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    border:none;
+}
+.setting_tips{
+    color:#49b210;
+    font-size: 0.12rem;
+    line-height:0.3rem;
+}
+
+.pop_warning{
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    z-index: 2;
+    top:50%;
+    left:50%;
+    width:2.8rem;
+    height:1.6rem;
+    padding:0.25rem;
+    margin-top:-0.8rem;
+    margin-left:-1.4rem;
+    -webkit-transform: scale(0,0);
+    -moz-transform: scale(0,0);
+    -ms-transform: scale(0,0);
+    -o-transform: scale(0,0);
+    transform: scale(0,0);
+}
+.pop_warning_title{
+    color:#e68614;
+    font-size:0.16rem;
+    line-height:0.24rem;
+    text-align: center;
+}
+.pop_warning_option{
+    margin-top:0.2rem;
+}
+.pop_warning_option .btn{
+    margin-left:0.15rem;
+    margin-right:0.15rem;
+}
+
+/*.combo{*/
+    /*width:1rem;*/
+/*}*/
+/*.combo span{*/
+    /*opacity: 0;*/
+/*}*/
+/*.combo h2{*/
+    /*align-items: center;*/
+    /*padding-left:0.4rem;*/
+    /*width:100%;*/
+    /*background: url("../images/combo.png") no-repeat left;*/
+    /*-webkit-background-size: 0.5rem 0.2rem;*/
+    /*background-size: 0.5rem 0.2rem;*/
+/*}*/
+/*.combo_x{*/
+    /*display: block;*/
+    /*width:0.16rem;*/
+    /*height:0.16rem;*/
+    /*background: url("../images/x.png") no-repeat center;*/
+    /*-webkit-background-size: 0.2rem;*/
+    /*background-size: 0.2rem;*/
+    /*-webkit-transform: rotate(45deg);*/
+    /*-moz-transform: rotate(45deg);*/
+    /*-ms-transform: rotate(45deg);*/
+    /*-o-transform: rotate(45deg);*/
+    /*transform: rotate(45deg);*/
+/*}*/
+/*.combo_num{*/
+    /*display: block;*/
+    /*width:0.26rem;*/
+    /*height:0.26rem;*/
+    /*background-image: url("../images/number.png");*/
+    /*background-repeat: no-repeat;*/
+    /*background-position-x: 0;*/
+    /*-webkit-background-size: 0.26rem;*/
+    /*background-size: 0.26rem;*/
+/*}*/
+/*.combo_num.layout_1{ background-position-y: 0 }*/
+/*.combo_num.layout_2{ background-position-y: 10% }*/
+/*.combo_num.layout_3{ background-position-y: 20% }*/
+/*.combo_num.layout_4{ background-position-y: 30% }*/
+/*.combo_num.layout_5{ background-position-y: 40% }*/
+/*.combo_num.layout_6{ background-position-y: 50% }*/
+/*.combo_num.layout_7{ background-position-y: 60% }*/
+/*.combo_num.layout_8{ background-position-y: 70% }*/
+/*.combo_num.layout_9{ background-position-y: 80% }*/
+/*.combo_num.layout_10{ background-position-y: 90% }*/
+/*.combo_num.layout_11{ background-position-y: 100% }*/

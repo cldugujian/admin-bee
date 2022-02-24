@@ -1,0 +1,268 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>飞机大战</title>
+    <link rel="stylesheet" type="text/css" href="styles/reset.css">
+    <link rel="stylesheet" type="text/css" href="styles/page.css">
+    <link rel="stylesheet" type="text/css" href="styles/common.css">
+    <script type="text/javascript" src="scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="scripts/howler.min.js"></script>
+    <script type="text/javascript" src="scripts/common.js"></script>
+    <script type="text/javascript" src="scripts/data.js"></script>
+    <script type="text/javascript" src="scripts/user.js"></script>
+</head>
+<body class="bee">
+
+    <!-- 加载图片 begin -->
+    <div id="js_loading" class="loading">
+        <img src="images/loading.gif">
+    </div>
+    <!-- 加载图片 end -->
+
+    <!-- 开始界面 begin -->
+    <section id="js_game_before" class="game_before">
+        <div id="js_game_before_main" class="game_before_main">
+            <div class="game_before_slogan">
+                <h1 id="js_game_before_title"></h1>
+                <i id="js_game_before_plane"></i>
+            </div>
+            <ul id="js_game_before_menu" class="game_before_menu">
+                <li id="js_game_start" class="bg_layout_1 js_sound_click"><span class="game_before_menu_1"></span></li>
+                <li id="js_game_choose" class="bg_layout_1 js_sound_click"><span class="game_before_menu_2"></span></li>
+                <li id="js_game_option" class="bg_layout_1 js_sound_click"><span class="game_before_menu_3"></span></li>
+                <li id="js_game_achievement" class="bg_layout_1 js_sound_click hide"><span class="game_before_menu_4"></span></li>
+                <li id="js_game_quit" class="bg_layout_1 js_sound_click"><span class="game_before_menu_5"></span></li>
+            </ul>
+        </div>
+    </section>
+    <!-- 开始界面 end -->
+
+    <!-- 游戏中 begin -->
+    <main id="js_game_main" class="game_main">
+        <header id="js_bee_header" class="bee_header">
+            <p id="js_bee_score">Score：<span>0</span></p>
+            <h1 id="js_bee_title">当前关卡：<span></span></h1>
+            <div id="js_bee_combo">combo:x<span>0</span></div>
+            <!--<div id="js_bee_combo" class="combo"><h2 class="flex"><span>0</span><i class="combo_x"></i><i class="combo_num"></i></h2> </div>-->
+        </header>
+        <section id="js_bee_main" class="bee_main">
+            <ul id="js_bee_enemy" class="bee_enemy"></ul>
+            <i id="js_spirit" class="plane">
+                <span id="js_spirit_1"></span>
+                <span id="js_spirit_2"></span>
+            </i>
+        </section>
+        <footer id="js_bee_footer" class="bee_footer">
+            <div id="js_bee_blood"></div>
+            <button id="js_bee_boost" type="button"></button>
+        </footer>
+    </main>
+    <!-- 游戏中 end -->
+
+    <!-- 选择关卡 begin -->
+    <section id="js_checkpoint" class="checkpoint js_menu_pop">
+        <ul class="checkpoint_main">
+            <li class="checkpoint_list bg_layout_1 js_sound_click">
+                <h2>关卡:1-1</h2>
+                <dl>
+                    <dt>难度:</dt>
+                    <dd></dd>
+                </dl>
+            </li>
+            <li class="checkpoint_list bg_layout_1 js_sound_click">
+                <h2>关卡:1-2</h2>
+                <dl>
+                    <dt>难度:</dt>
+                    <dd></dd>
+                    <dd></dd>
+                </dl>
+            </li>
+            <li class="checkpoint_list bg_layout_1 js_sound_click">
+                <h2>关卡:1-3</h2>
+                <dl>
+                    <dt>难度:</dt>
+                    <dd></dd>
+                    <dd></dd>
+                </dl>
+            </li>
+            <li class="checkpoint_list bg_layout_1 js_sound_click">
+                <h2>关卡:1-4</h2>
+                <dl>
+                    <dt>难度:</dt>
+                    <dd></dd>
+                    <dd></dd>
+                    <dd></dd>
+                </dl>
+            </li>
+            <li class="checkpoint_list bg_layout_1 js_sound_click">
+                <h2>关卡:1-5</h2>
+                <dl>
+                    <dt>难度:</dt>
+                    <dd></dd>
+                    <dd></dd>
+                    <dd></dd>
+                </dl>
+            </li>
+            <li class="checkpoint_list bg_layout_3 js_sound_click">
+                <h2>Boss战</h2>
+                <dl>
+                    <dt>难度:</dt>
+                    <dd></dd>
+                    <dd></dd>
+                    <dd></dd>
+                    <dd></dd>
+                </dl>
+            </li>
+        </ul>
+        <button id="js_checkpoint_cancel" class="btn btn_green btn_checkpoint_back js_sound_click" type="button">返回主菜单</button>
+    </section>
+    <!-- 选择关卡 end -->
+
+    <!-- 游戏设置 begin -->
+    <section id="js_setting" class="setting flex_center">
+        <div class="setting_main flex_center bg_layout_1">
+            <header class="flex_center">游戏设置</header>
+            <ul class="flex_center">
+                <li class="setting_list">
+                    <div class="setting_item flex_center">
+                        <h2 class="setting_item_name">粒子数</h2>
+                        <div class="setting_item_line">
+                            <span class="bg_layout_1 js_setting_item js_setting_1"></span>
+                        </div>
+                    </div>
+                    <p class="setting_tips">粒子数过多会造成卡顿，请酌情添加</p>
+                </li>
+                <li class="setting_list">
+                    <div class="setting_item flex_center">
+                        <h2 class="setting_item_name">灵敏度</h2>
+                        <div class="setting_item_line">
+                            <span class="bg_layout_1 js_setting_item js_setting_2"></span>
+                        </div>
+                    </div>
+                    <p class="setting_tips">调节主机移动的速度</p>
+                </li>
+                <li class="setting_list">
+                    <div class="setting_item flex_center">
+                        <h2 class="setting_item_name">音乐</h2>
+                        <div class="setting_item_line">
+                            <span class="bg_layout_1 js_setting_item js_setting_3"></span>
+                        </div>
+                    </div>
+                    <p class="setting_tips">调节背景音乐的音量，调至最左边为关闭</p>
+                </li>
+                <li class="setting_list">
+                    <div class="setting_item flex_center">
+                        <h2 class="setting_item_name">音效</h2>
+                        <div class="setting_item_line">
+                            <span class="bg_layout_1 js_setting_item js_setting_4"></span>
+                        </div>
+                    </div>
+                    <p class="setting_tips">调节游戏音效的音量，调至最左边为关闭</p>
+                </li>
+            </ul>
+            <footer class="flex_center">
+                <button class="btn btn_null js_setting_cancel js_sound_click" type="button">取消</button>
+                <button class="btn btn_green js_setting_confirm js_sound_click" type="button">确定</button>
+            </footer>
+        </div>
+    </section>
+    <!-- 游戏设置 end -->
+
+    <!-- 预加载图片 begin -->
+    <div id="pre_load">
+        <img src="images/enemy_spirit.png">
+        <img src="images/bullet.png">
+        <img src="images/menu.png">
+        <img src="images/plan_01.png">
+    </div>
+    <!-- 预加载图片 end -->
+
+    <!-- 清除警告 begin -->
+    <section id="js_pop_warning" class="pop_warning bg_layout_1">
+        <h2 class="pop_warning_title">开始新游戏将会清空您的游戏记录，确定继续吗？</h2>
+        <div class="pop_warning_option flex_center">
+            <button class="btn btn_green cancel js_sound_click" type="button">取消</button>
+            <button class="btn btn_null confirm js_sound_click" type="button">继续</button>
+        </div>
+    </section>
+    <!-- 清除警告 end -->
+
+    <!-- 过关 begin -->
+    <section id="js_pop_pass" class="pop_warning bg_layout_1 js_pop_gaming">
+        <h2 class="pop_warning_title">恭喜，您过关啦！</h2>
+        <div class="pop_warning_option flex_center">
+            <button class="btn btn_null cancel js_sound_click" type="button">返回</button>
+            <button class="btn btn_green confirm js_sound_click" type="button">下一关</button>
+        </div>
+    </section>
+    <!-- 过关 end -->
+
+    <!-- 失败 begin -->
+    <section id="js_pop_over" class="pop_warning bg_layout_1 js_pop_gaming">
+        <h2 class="pop_warning_title">很遗憾，您失败了！</h2>
+        <div class="pop_warning_option flex_center">
+            <button class="btn btn_null cancel js_sound_click" type="button">返回</button>
+            <button class="btn btn_green confirm js_sound_click" type="button">再试一次</button>
+        </div>
+    </section>
+    <!-- 失败 end -->
+
+    <!-- 通关 begin -->
+    <section id="js_pop_done" class="pop_warning bg_layout_1 js_pop_gaming">
+        <h2 class="pop_warning_title">恭喜，您通关啦！</h2>
+        <div class="pop_warning_option flex_center">
+            <button class="btn btn_null cancel js_sound_click" type="button">返回</button>
+        </div>
+    </section>
+    <!-- 通关 end -->
+
+    <div id="test"></div>
+
+</body>
+</html>
+
+<script>
+
+    /*
+
+      *  未完成列表 --------------------
+
+      *  背景音乐及音效
+
+
+      *  完成列表 --------------------
+
+      *  finished - 背景移动
+      *  finished - 主机移动
+      *  finished - 旋转设备
+      *  finished - 主机子弹
+      *  finished - 生成dom
+      *  finished - 碰撞检测
+      *  finished - 敌机移动
+      *  finished - 爆炸特效
+      *  finished - HUD界面
+      *  finished - 血量变化
+      *  finished - 连击数变动
+      *  finished - 计分板变动
+      *  finished - 离开页面暂停游戏
+      *  finished - 被击中时显示损毁的图片
+      *  finished - 游戏开始界面
+      *  finished - 游戏结束界面
+
+
+      *  暂弃列表 --------------------
+
+      *  暂弃 - 敌机发射子弹
+      *  暂弃 - 主机仓库
+      *  暂弃 - 我的成就
+      *  暂弃 - 保存游戏信息
+      *  暂弃 - 命中率
+      *  暂弃 - 评价
+      *  暂弃 - boost
+      *  暂弃 - 子弹类型
+
+    */
+
+</script>
